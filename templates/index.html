@@ -1,0 +1,40 @@
+{% extends"layout.html" %}
+
+{% block main %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+
+        <h5>{{city}}</h5>
+        <hr>
+        <img src = "https://openweathermap.org/img/wn/{{icon}}@2x.png" alt="weather">
+        <h3>{{temp}}°C</h3>
+        <h4>{{desc}}</h4>
+      </div>
+      <div class="col-sm">
+        <h3>New Task</h3>
+        <form method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" id="new-task" placeholder="New Task" name="new-task">
+            </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="add-btn">Add</button>
+                </div>
+          </form>
+      </div>
+      <div class="col-sm">
+        <h3>ToDo</h3>
+        {% for item in task%}
+          <div class="list-group">
+              <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" id="mycheck" value="{{item['job']}}">
+                {{item['job']}}
+              </label>
+        {% endfor %}
+    </div>
+  </div>
+  </div>
+  </div>
+  <script src="/static/index.js"></script>
+{% endblock %}

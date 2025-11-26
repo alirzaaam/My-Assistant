@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+
+{% block main %}
+
+
+<h3>{{username}}'s Profile</h3>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h5>Here, you can change your password or update your city.</h5>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-info">
+                    If you don’t want to change your city, please re-enter it.
+                </li>
+                <li class="list-group-item list-group-item-info">
+                    If you want to go back to the main/to-do list page, you can click on 'MyAssistance' in the navigation bar.
+                </li>
+            </ul>
+          </div>
+      <div class="col-sm">
+        <form action="/profile" method="post">
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto" name="old_pass" placeholder="Old Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto" name="new_pass" placeholder="New Password" type="password">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" class="form-control mx-auto" name="conf_pass" placeholder="Password Confirmation" type="password">
+            </div>
+            <div class="mb-3">
+                <input autocomplete="off" autofocus class="form-control mx-auto" name="new_city" placeholder="Re-Enter or Change Your City" type="text">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Change</button>
+            </div>
+        </form>
+      </div>
+  </div>
+  </div>
+
+  <script src="/static/index.js"></script>
+{% endblock %}

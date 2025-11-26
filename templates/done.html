@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Tasks
+{% endblock %}
+
+
+
+{% block main %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h3>ToDo</h3>
+        <div class="list-group">
+            <form method="post">
+            <select name="option" class="form-select" multiple aria-label="multiple select example">
+        {% for item in task%}
+                <option value="{{item['job']}}" >{{item['job']}}</option>
+        {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary" id="add-btn">Delete</button>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
+  <script src="/static/index.js"></script>
+{% endblock %}
