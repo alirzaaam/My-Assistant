@@ -1,88 +1,82 @@
-# My Assistance Website
-#### Video Demo:  <https://youtu.be/2TwIT-8YfTQ>
-#### Description:
+# Flask Todo List with Weather API
 
-In every single of html files, I use bootstrap for design.
-in My project folder I have another two folder(Static and Templates)
+🧠 **Overview**  
+This is a web-based **Todo List application** built with Flask. Users can register, log in, add, and delete tasks. The app also integrates the **OpenWeatherMap API** to show real-time weather information for the user's city on the dashboard.  
 
-Static: that include 2 images one for login page and one for background.
-one js file: index.js
-one css file: style.css
+💡 **Key Features**  
+- **User Authentication:** Register, log in, and log out securely.  
+- **Todo Management:** Add new tasks and delete completed tasks.  
+- **Profile Management:** Change password and update your city.  
+- **Weather Integration:** Displays current weather information for the user’s city (temperature, description, icon).  
+- **Responsive Alerts:** Uses Flask’s `flash` messages for errors and confirmations.  
 
-Templates: that include 6 files.
+⚙️ **How to Run**  
 
-1. Layout.html file:
-It’s a main layout file and base html file for frontend view. it include bootstrap link and script and google fonts.
-I use bootstrap and google font for UI and use Jinja for substitution.
-I define two jinja block in this file one for title and another for main block to change everything I want in different html file between body tags.
-I use two if statements one for change the link in navigation bar when user logged in and another for flash messages that appear between navigation bar and main body.
+1. **Clone the repository**  
 
-2. login.html file:
-this file extends the layout file to reduce redundancy and I just change the body of layout.
-this is the first page users can see to log in to the website.
-I use a form tag and two input one for username and another for password and one button to get users inputs and submit them through POST method.
-Also I put a register link on the navbar to register.
+```bash
+git clone https://github.com/yourusername/flask-todo-weather.git
+cd flask-todo-weather
+Create a virtual environment
 
-3. register.html file:
-this page also extends from layout file.
-here I use a form with four inputs for username, password,
-Password conformation and city and also one button to submit user's inputs whit POST method.
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+Install dependencies
 
-4. index.html file:
-this file extends the layout file.
-the first page user can see is this file and it include 3 columns that created with bootstrap feature.
+bash
+Copy code
+pip install cs50 flask flask-session werkzeug requests
+Run the application
 
-First column for weather that shows user city, icon of weather condition, weather degree in Celsius and brief description for weather condition. here I use jinja to bring in front-end name of the city, temperature, weather description and id code that I use in image tag to change icon depend on each weather.
+bash
+Copy code
+python app.py
+Open in browser
+Visit http://127.0.0.1:5000
 
-Second column for adding new task to user to-do list that include one form with one input and one button that submit user's task through POST method.
+📁 File Structure
 
-Third column for list of to-do list tasks. That I use for loop with Jinja that make a div tag include label and check box in it.
-every time user add a new task, it will appear in this column.
+bash
+Copy code
+.
+├── app.py             # Main Flask application
+├── templates/         # HTML templates
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── profile.html
+│   └── done.html
+├── todo.db            # SQLite database (auto-created)
+└── README.md          # Project documentation
+🌐 Features Summary
 
-5. profile.html file:
-this file extends the layout file.
-this file is for change password or change the city of user.
-it include 4 inputs and one button that submit users input through POST method.
-here through jinja I bring to front-end the name that user use for username.
-this page include 2 column.
-First for some tips and second for users inputs.
+✅ Secure user registration and login
+✅ Add and delete tasks dynamically
+✅ Update profile and city information
+✅ Displays real-time weather data for the user’s city
+✅ Flash messages for validation and confirmations
 
-6. done.html file:
-this file extends the layout file.
-this file is for delete your tasks (done tasks). it has a select tag that with Jinja I use a for loop
-for show every task in this group list and user can choose a task and click delete to delete it that uses POST method.
+🧰 Technologies Used
 
+Backend: Python, Flask, CS50 SQL
 
-7. style.css file:
-This file is for styling html files.
-Here I use tags, classes and IDs. In body I change the font-family
-Background image, size position, attachment and repeat.
-Give one rem margin from top for every buttons and 20 rem margin for log-in form from top,
-And 10 pixel border radius for login image and its div.
-Also define a class for making checkbox checked and become gray.
+Database: SQLite
 
-8. index.js file:
-This file includes JavaScript codes.
-First code block is for showing real-time time and date.
-Second code block is for draw a line on tasks that marked checked.
+Authentication: Werkzeug for password hashing
 
-9. todo.db file:
-It’s my database file that include two tables one for users and one for tasks.
+API Integration: OpenWeatherMap API
 
-10. app.py file:
-This is our backend file that uses Flask framework.
-Here I use lots of functions for every single of website pages such as
-Index () function,
-That is the function when user logged-in in website called to show index.html file and get open weather API,
-To show weather of each city user entered or add new task to job table.
-Register function is for get users inputs and post it in users table it also make users password hash.
-Login function is for get user inputs (username and password) and compare it with user database to check if user already
-Registered (the username and password already exist) allow to user enter or log-in.
-When user logged in I equal session module that I import from Flask library to the ID of user table (ID column is auto-generated).
-So website remember user anytime he/she log-in and don’t show to him/her log-in page again, unless user click on the logout
-On the navigation bar that called Logout function, this function clear the session and back to login page.
-Profile function is for change password and city of user. That gonna compare users old password and if it exist
-In users table it gonna replace new password with old one. And also gonna replace old city with new one.
-Done function get what user chooses and delete it from job table and return to index file.
+Frontend: HTML, CSS, Jinja2 templates
+
+⚠️ Notes
+
+You need a valid OpenWeatherMap API key to fetch weather data.
+
+Make sure the database file todo.db is writable by your app.
+
+Ensure proper handling of session and CS50 SQL queries.
 
 
